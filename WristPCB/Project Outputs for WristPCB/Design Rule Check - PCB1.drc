@@ -1,0 +1,119 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc
+Date     : 1/07/2026
+Time     : 3:23:30 PM
+
+Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C2-2(157.098mm,122.555mm) on Top Layer And Track (157.226mm,120.904mm)(157.226mm,122.555mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C6-2(137.922mm,121.73mm) on Top Layer And Track (139.409mm,116.062mm)(139.446mm,116.099mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C6-2(137.922mm,121.73mm) on Top Layer And Track (140.432mm,122.301mm)(140.559mm,122.428mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C7-2(149.606mm,109.475mm) on Top Layer And Track (150.876mm,106.68mm)(150.876mm,106.755mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (160.344mm,117.475mm)(161.31mm,118.441mm) on Top Layer And Pad U1-2(161.51mm,117.641mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net INT1 Between Pad U1-22(168.61mm,107.591mm) on Top Layer And Track (155.448mm,107.696mm)(168.656mm,107.696mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net CS Between Pad U1-29(173.31mm,109.641mm) on Top Layer And Track (173.355mm,109.474mm)(173.482mm,109.601mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net SCK Between Pad U1-30(173.31mm,110.441mm) on Top Layer And Track (173.183mm,110.236mm)(173.364mm,110.417mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net MOSI Between Pad U1-31(173.31mm,111.241mm) on Top Layer And Track (156.718mm,111.125mm)(173.362mm,111.125mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net MISO Between Pad U1-32(173.31mm,112.041mm) on Top Layer And Track (173.101mm,111.76mm)(173.355mm,112.014mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net TX Between Pad U1-36(173.31mm,115.241mm) on Top Layer And Track (153.289mm,115.189mm)(173.355mm,115.189mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (160.401mm,119.634mm)(162.179mm,119.634mm) on Bottom Layer And Pad U1-54(162.21mm,119.691mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U1-55_7(165.91mm,112.141mm) on Top Layer And Pad U1-55_4(165.91mm,113.641mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (167.386mm,112.268mm)(168.148mm,112.268mm) on Bottom Layer And Pad U1-55_8(167.41mm,112.141mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net 3V3 Between Track (152.019mm,109.474mm)(152.527mm,108.966mm) on Bottom Layer And Pad U2-8(152.031mm,109.461mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net 3V3 Between Track (158.144mm,116.713mm)(158.369mm,116.713mm) on Top Layer And Track (150.749mm,116.713mm)(158.369mm,116.713mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net 3V3 Between Track (152.527mm,105.156mm)(152.527mm,106.553mm) on Bottom Layer And Track (152.526mm,106.68mm)(152.527mm,106.681mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net IO0 Between Track (164.084mm,101.6mm)(164.084mm,102.489mm) on Bottom Layer And Track (164.084mm,102.654mm)(164.122mm,102.616mm) on Top Layer 
+Rule Violations :18
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.305mm) (Max=25.4mm) (Preferred=0.305mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.127mm) (Max=25.4mm) (Preferred=0.127mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.508mm) (Max=25.4mm) (Preferred=0.508mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=25.4mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.152mm) (Max=25.4mm) (Preferred=0.152mm) (All)
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Conductor Width=0.127mm) (Air Gap=0.127mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.152mm) (All)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (147.447mm,100.965mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (148.082mm,110.871mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (149.86mm,115.824mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (150.495mm,105.156mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (151.384mm,115.443mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (152.527mm,107.95mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (153.797mm,112.903mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (153.797mm,118.872mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (155.448mm,111.76mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (156.718mm,111.125mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (157.353mm,109.474mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (158.877mm,110.236mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (160.274mm,117.475mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+   Violation between Minimum Annular Ring: (0.15mm < 0.152mm) Via (166.878mm,103.886mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)
+Rule Violations :14
+
+Processing Rule : Hole Size Constraint (Min=0.3mm) (Max=6.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.152mm) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (0.143mm < 0.152mm) Between Pad C3-1(152.526mm,106.68mm) on Top Layer And Via (152.527mm,107.95mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.143mm]
+Rule Violations :1
+
+Processing Rule : Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.127mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (150.749mm,116.713mm)(158.369mm,116.713mm) on Bottom Layer 
+   Violation between Net Antennae: Track (152.019mm,109.474mm)(152.527mm,108.966mm) on Bottom Layer 
+   Violation between Net Antennae: Track (152.527mm,105.156mm)(152.527mm,106.553mm) on Bottom Layer 
+   Violation between Net Antennae: Track (153.289mm,115.189mm)(173.355mm,115.189mm) on Bottom Layer 
+   Violation between Net Antennae: Track (155.448mm,107.696mm)(168.656mm,107.696mm) on Bottom Layer 
+   Violation between Net Antennae: Track (156.718mm,111.125mm)(173.362mm,111.125mm) on Bottom Layer 
+   Violation between Net Antennae: Track (157.226mm,120.904mm)(157.226mm,122.555mm) on Bottom Layer 
+   Violation between Net Antennae: Track (157.353mm,109.474mm)(173.355mm,109.474mm) on Bottom Layer 
+   Violation between Net Antennae: Track (158.877mm,110.236mm)(173.183mm,110.236mm) on Bottom Layer 
+   Violation between Net Antennae: Track (160.401mm,119.634mm)(162.179mm,119.634mm) on Bottom Layer 
+   Violation between Net Antennae: Track (164.084mm,101.6mm)(164.084mm,102.489mm) on Bottom Layer 
+   Violation between Net Antennae: Track (167.386mm,112.268mm)(168.148mm,112.268mm) on Bottom Layer 
+   Violation between Net Antennae: Track (173.101mm,111.76mm)(173.355mm,112.014mm) on Bottom Layer 
+Rule Violations :13
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+   Violation between Board Outline Clearance(Outline Edge): (0.127mm < 0.2mm) Between Board Edge And Text "U3" (140.843mm,125.095mm) on Top Overlay 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 47
+Waived Violations : 0
+Time Elapsed        : 00:00:00

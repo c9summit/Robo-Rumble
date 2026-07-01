@@ -1,0 +1,517 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">1/07/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:23:30 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc" class="file"><acronym title="C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc">C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">47</td></tr>
+</table>
+</td>
+</table><a name="ID2VHTMEN4GHQSPK2SCF04GCWBIFMBAY2SSVGU5DIFHA30ICV0SB3K"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3LLJW3EZWD2CJEB2X3BI3AT42MYBSEOABWCOV4KJDTZWXATU2ZLD">Clearance Constraint (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGVJUDJNSUMC2MRSXCVLXW5E4TJ4CO34U3RBIISPM3BQDHOMEPZNE">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTENWJDXZGGOUJXPJ3JDMY4ZRLHAQJWSMDUWIJJP0BOP0C4VTWW2P">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">18</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5AEKBY1SDXPIJB1BIHSGIGY5SFDFZT0VZEEBHTHM4T1R4AJUGPUB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDR1QMR2RPZUVPDCDWSLF1VYQ4PNOCAZRBU0KT2LCRBDAGWAILYWY">Width Constraint (Min=0.305mm) (Max=25.4mm) (Preferred=0.305mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDW5O442S3HLRYJ4N55WHI2JEOFO1HUV2LND5KT5PCFRPZSKVJAX2N">Width Constraint (Min=0.127mm) (Max=25.4mm) (Preferred=0.127mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV2WE4AYUJIYKJH3R5NZUJG4E5NQCPTM14NWCZSP51UCU2OCVALUB">Width Constraint (Min=0.508mm) (Max=25.4mm) (Preferred=0.508mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXIYTH33QTLIPHZP2BPKO5XCVXOC5FAISPCKVF3DVFBWBO15BXC5C">Width Constraint (Min=0.254mm) (Max=25.4mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0KWGFWIVPFWGPVPQ5V35ZH15QGQNJNWFRURJFUKSZDWLHNXXJIEL">Width Constraint (Min=0.152mm) (Max=25.4mm) (Preferred=0.152mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJQCMPGEQQNF1PNPQOBPCSE5DEBPM34ZW5LL5AECR21IWRB2SLAFO">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVU3RVEO5HMPIEUBTSYTPJMKXHWANODYHXTMLQDXLKPEZTINYOQF">Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Conductor Width=0.127mm) (Air Gap=0.127mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYRGUTDXL54TTGMTJ3D0KZZ1ICBSZ0Q0X1S13DYNG4AUN4X3VPCZD">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBHG4I5NQ1KNOFGHORXL0HWHOGJ2XP1ZLQQ0IXQFYQX23CJVNFEWK">Minimum Annular Ring (Minimum=0.152mm) (All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJTL2VDPOFKG4C3ROPHOEZLVEHGYZEKW1MYOCOXDBKV1KXOULLBPE">Hole Size Constraint (Min=0.3mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4VBNJJLDPZ0MJT25Y3MPANA5SGMNRBYJ3QVJWTFDUBH5RY52RV2">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR3RRXF0ESRF5LIBMJ2IWXJQ4RKFAKZUTQ3235GCENS3QFSMYW0YK">Minimum Solder Mask Sliver (Gap=0.152mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID51FM3KHU2TJLKIB1RETMT4CRYCU415CX1ZFJNILI4QF2HDLTZLEK">Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFIUMISRP3RCPH2P4X2HDQQCO5FDPVA1HFNNJUWCQBJSURFVKGY0O">Silk to Silk (Clearance=0.127mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDI4B1CCIEXISRE3FJHZP1ZS25JOGYRJ4X3PAJ1LMVLGEQTREFC1QE">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">13</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDATWJJ3PF5SB1H3B2SR3TWL0QWGFOZWD4AP3SOBZQK3FVK3OKBXH">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE2YWKBUBL545KZ0131OWNE50ZIVRP3CY0JJC01GCP5V0JA4MVOLP">Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">47</td>
+</tr>
+</table><br><a name="IDTENWJDXZGGOUJXPJ3JDMY4ZRLHAQJWSMDUWIJJP0BOP0C4VTWW2P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6084.961mil|Location2.X=6290mil|Location1.Y=4725mil|Location2.Y=4925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6084.961mil|Location2.X=6290mil|Location1.Y=4725mil|Location2.Y=4925mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C2-2(157.098mm,122.555mm) on Top Layer And Track (157.226mm,120.904mm)(157.226mm,122.555mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330mil|Location2.X=5590mil|Location1.Y=4692.52mil|Location2.Y=4670.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330mil|Location2.X=5590mil|Location1.Y=4692.52mil|Location2.Y=4670.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-2(137.922mm,121.73mm) on Top Layer And Track (139.409mm,116.062mm)(139.446mm,116.099mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330mil|Location2.X=5628.819mil|Location1.Y=4692.52mil|Location2.Y=4915mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330mil|Location2.X=5628.819mil|Location1.Y=4692.52mil|Location2.Y=4915mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-2(137.922mm,121.73mm) on Top Layer And Track (140.432mm,122.301mm)(140.559mm,122.428mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790mil|Location2.X=6040mil|Location1.Y=4210.039mil|Location2.Y=4302.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5790mil|Location2.X=6040mil|Location1.Y=4210.039mil|Location2.Y=4302.953mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C7-2(149.606mm,109.475mm) on Top Layer And Track (150.876mm,106.68mm)(150.876mm,106.755mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6250.787mil|Location2.X=6458.661mil|Location1.Y=4563.032mil|Location2.Y=4731.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6250.787mil|Location2.X=6458.661mil|Location1.Y=4563.032mil|Location2.Y=4731.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (160.344mm,117.475mm)(161.31mm,118.441mm) on Top Layer And Pad U1-2(161.51mm,117.641mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6538.189mil|Location2.X=6740mil|Location1.Y=4135.866mil|Location2.Y=4340mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6538.189mil|Location2.X=6740mil|Location1.Y=4135.866mil|Location2.Y=4340mil|Absolute=True">Un-Routed Net Constraint: Net INT1 Between Pad U1-22(168.61mm,107.591mm) on Top Layer And Track (155.448mm,107.696mm)(168.656mm,107.696mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6930mil|Location1.Y=4216.575mil|Location2.Y=4415mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6930mil|Location1.Y=4216.575mil|Location2.Y=4415mil|Absolute=True">Un-Routed Net Constraint: Net CS Between Pad U1-29(173.31mm,109.641mm) on Top Layer And Track (173.355mm,109.474mm)(173.482mm,109.601mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925.348mil|Location1.Y=4248.071mil|Location2.Y=4447.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925.348mil|Location1.Y=4248.071mil|Location2.Y=4447.109mil|Absolute=True">Un-Routed Net Constraint: Net SCK Between Pad U1-30(173.31mm,110.441mm) on Top Layer And Track (173.183mm,110.236mm)(173.364mm,110.417mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925.264mil|Location1.Y=4279.567mil|Location2.Y=4475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925.264mil|Location1.Y=4279.567mil|Location2.Y=4475mil|Absolute=True">Un-Routed Net Constraint: Net MOSI Between Pad U1-31(173.31mm,111.241mm) on Top Layer And Track (156.718mm,111.125mm)(173.362mm,111.125mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925mil|Location1.Y=4311.063mil|Location2.Y=4510mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925mil|Location1.Y=4311.063mil|Location2.Y=4510mil|Absolute=True">Un-Routed Net Constraint: Net MISO Between Pad U1-32(173.31mm,112.041mm) on Top Layer And Track (173.101mm,111.76mm)(173.355mm,112.014mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925mil|Location1.Y=4437.047mil|Location2.Y=4635mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6723.228mil|Location2.X=6925mil|Location1.Y=4437.047mil|Location2.Y=4635mil|Absolute=True">Un-Routed Net Constraint: Net TX Between Pad U1-36(173.31mm,115.241mm) on Top Layer And Track (153.289mm,115.189mm)(173.355mm,115.189mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6285mil|Location2.X=6486.221mil|Location1.Y=4610mil|Location2.Y=4812.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6285mil|Location2.X=6486.221mil|Location1.Y=4610mil|Location2.Y=4812.244mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (160.401mm,119.634mm)(162.179mm,119.634mm) on Bottom Layer And Pad U1-54(162.21mm,119.691mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6510.205mil|Location2.X=6553.575mil|Location1.Y=4393.315mil|Location2.Y=4495.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6510.205mil|Location2.X=6553.575mil|Location1.Y=4393.315mil|Location2.Y=4495.74mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-55_7(165.91mm,112.141mm) on Top Layer And Pad U1-55_4(165.91mm,113.641mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6490mil|Location2.X=6690.945mil|Location1.Y=4320mil|Location2.Y=4515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6490mil|Location2.X=6690.945mil|Location1.Y=4320mil|Location2.Y=4515mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (167.386mm,112.268mm)(168.148mm,112.268mm) on Bottom Layer And Pad U1-55_8(167.41mm,112.141mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5885mil|Location2.X=6085.472mil|Location1.Y=4210mil|Location2.Y=4409.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5885mil|Location2.X=6085.472mil|Location1.Y=4210mil|Location2.Y=4409.5mil|Absolute=True">Un-Routed Net Constraint: Net 3V3 Between Track (152.019mm,109.474mm)(152.527mm,108.966mm) on Bottom Layer And Pad U2-8(152.031mm,109.461mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6126.151mil|Location2.X=6335mil|Location1.Y=4495mil|Location2.Y=4695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6126.151mil|Location2.X=6335mil|Location1.Y=4495mil|Location2.Y=4695mil|Absolute=True">Un-Routed Net Constraint: Net 3V3 Between Track (158.144mm,116.713mm)(158.369mm,116.713mm) on Top Layer And Track (150.749mm,116.713mm)(158.369mm,116.713mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5905mil|Location2.X=6105mil|Location1.Y=4095mil|Location2.Y=4300.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5905mil|Location2.X=6105mil|Location1.Y=4095mil|Location2.Y=4300.039mil|Absolute=True">Un-Routed Net Constraint: Net 3V3 Between Track (152.527mm,105.156mm)(152.527mm,106.553mm) on Bottom Layer And Track (152.526mm,106.68mm)(152.527mm,106.681mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6360mil|Location2.X=6560mil|Location1.Y=3935mil|Location2.Y=4141.484mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6360mil|Location2.X=6560mil|Location1.Y=3935mil|Location2.Y=4141.484mil|Absolute=True">Un-Routed Net Constraint: Net IO0 Between Track (164.084mm,101.6mm)(164.084mm,102.489mm) on Bottom Layer And Track (164.084mm,102.654mm)(164.122mm,102.616mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBHG4I5NQ1KNOFGHORXL0HWHOGJ2XP1ZLQQ0IXQFYQX23CJVNFEWK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=0.152mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5801.375mil|Location2.X=5808.625mil|Location1.Y=3980.233mil|Location2.Y=3987.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5801.375mil|Location2.X=5808.625mil|Location1.Y=3980.233mil|Location2.Y=3987.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (147.447mm,100.965mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5826.375mil|Location2.X=5833.625mil|Location1.Y=4370.233mil|Location2.Y=4377.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5826.375mil|Location2.X=5833.625mil|Location1.Y=4370.233mil|Location2.Y=4377.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (148.082mm,110.871mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5896.375mil|Location2.X=5903.625mil|Location1.Y=4565.233mil|Location2.Y=4572.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5896.375mil|Location2.X=5903.625mil|Location1.Y=4565.233mil|Location2.Y=4572.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (149.86mm,115.824mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5921.375mil|Location2.X=5928.625mil|Location1.Y=4145.233mil|Location2.Y=4152.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5921.375mil|Location2.X=5928.625mil|Location1.Y=4145.233mil|Location2.Y=4152.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (150.495mm,105.156mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5956.375mil|Location2.X=5963.625mil|Location1.Y=4550.233mil|Location2.Y=4557.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5956.375mil|Location2.X=5963.625mil|Location1.Y=4550.233mil|Location2.Y=4557.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (151.384mm,115.443mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6001.375mil|Location2.X=6008.625mil|Location1.Y=4255.233mil|Location2.Y=4262.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6001.375mil|Location2.X=6008.625mil|Location1.Y=4255.233mil|Location2.Y=4262.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (152.527mm,107.95mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6051.375mil|Location2.X=6058.625mil|Location1.Y=4450.233mil|Location2.Y=4457.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6051.375mil|Location2.X=6058.625mil|Location1.Y=4450.233mil|Location2.Y=4457.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (153.797mm,112.903mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6051.375mil|Location2.X=6058.625mil|Location1.Y=4685.233mil|Location2.Y=4692.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6051.375mil|Location2.X=6058.625mil|Location1.Y=4685.233mil|Location2.Y=4692.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (153.797mm,118.872mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6116.375mil|Location2.X=6123.625mil|Location1.Y=4405.233mil|Location2.Y=4412.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6116.375mil|Location2.X=6123.625mil|Location1.Y=4405.233mil|Location2.Y=4412.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (155.448mm,111.76mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6166.375mil|Location2.X=6173.625mil|Location1.Y=4380.233mil|Location2.Y=4387.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6166.375mil|Location2.X=6173.625mil|Location1.Y=4380.233mil|Location2.Y=4387.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (156.718mm,111.125mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6191.375mil|Location2.X=6198.625mil|Location1.Y=4315.233mil|Location2.Y=4322.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6191.375mil|Location2.X=6198.625mil|Location1.Y=4315.233mil|Location2.Y=4322.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (157.353mm,109.474mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6251.375mil|Location2.X=6258.625mil|Location1.Y=4345.233mil|Location2.Y=4352.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6251.375mil|Location2.X=6258.625mil|Location1.Y=4345.233mil|Location2.Y=4352.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (158.877mm,110.236mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6306.375mil|Location2.X=6313.625mil|Location1.Y=4630.233mil|Location2.Y=4637.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6306.375mil|Location2.X=6313.625mil|Location1.Y=4630.233mil|Location2.Y=4637.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (160.274mm,117.475mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6566.375mil|Location2.X=6573.625mil|Location1.Y=4095.233mil|Location2.Y=4102.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6566.375mil|Location2.X=6573.625mil|Location1.Y=4095.233mil|Location2.Y=4102.483mil|Absolute=True">Minimum Annular Ring: (0.15mm &lt; 0.152mm) Via (166.878mm,103.886mm) from Top Layer to Bottom Layer (Annular Ring=0.15mm) On (Top Layer)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDR3RRXF0ESRF5LIBMJ2IWXJQ4RKFAKZUTQ3235GCENS3QFSMYW0YK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.152mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6001.375mil|Location2.X=6008.625mil|Location1.Y=4229.741mil|Location2.Y=4236.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6001.375mil|Location2.X=6008.625mil|Location1.Y=4229.741mil|Location2.Y=4236.991mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.143mm &lt; 0.152mm) Between Pad C3-1(152.526mm,106.68mm) on Top Layer And Via (152.527mm,107.95mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.143mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDI4B1CCIEXISRE3FJHZP1ZS25JOGYRJ4X3PAJ1LMVLGEQTREFC1QE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6223.626mil|Location2.X=6253.471mil|Location1.Y=4583.626mil|Location2.Y=4628.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6223.626mil|Location2.X=6253.471mil|Location1.Y=4583.626mil|Location2.Y=4628.144mil|Absolute=True">Net Antennae: Track (150.749mm,116.713mm)(158.369mm,116.713mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5973.626mil|Location2.X=6003.471mil|Location1.Y=4298.626mil|Location2.Y=4343.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5973.626mil|Location2.X=6003.471mil|Location1.Y=4298.626mil|Location2.Y=4343.144mil|Absolute=True">Net Antennae: Track (152.019mm,109.474mm)(152.527mm,108.966mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5993.626mil|Location2.X=6023.471mil|Location1.Y=4183.626mil|Location2.Y=4228.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5993.626mil|Location2.X=6023.471mil|Location1.Y=4183.626mil|Location2.Y=4228.144mil|Absolute=True">Net Antennae: Track (152.527mm,105.156mm)(152.527mm,106.553mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6813.626mil|Location2.X=6843.471mil|Location1.Y=4523.626mil|Location2.Y=4568.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6813.626mil|Location2.X=6843.471mil|Location1.Y=4523.626mil|Location2.Y=4568.144mil|Absolute=True">Net Antennae: Track (153.289mm,115.189mm)(173.355mm,115.189mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6630.595mil|Location2.X=6656.154mil|Location1.Y=4230.595mil|Location2.Y=4268.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6630.595mil|Location2.X=6656.154mil|Location1.Y=4230.595mil|Location2.Y=4268.045mil|Absolute=True">Net Antennae: Track (155.448mm,107.696mm)(168.656mm,107.696mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.858mil|Location2.X=6841.418mil|Location1.Y=4365.595mil|Location2.Y=4403.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.858mil|Location2.X=6841.418mil|Location1.Y=4365.595mil|Location2.Y=4403.045mil|Absolute=True">Net Antennae: Track (156.718mm,111.125mm)(173.362mm,111.125mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6181.5mil|Location2.X=6205.089mil|Location1.Y=4816.5mil|Location2.Y=4850.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6181.5mil|Location2.X=6205.089mil|Location1.Y=4816.5mil|Location2.Y=4850.699mil|Absolute=True">Net Antennae: Track (157.226mm,120.904mm)(157.226mm,122.555mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.595mil|Location2.X=6841.154mil|Location1.Y=4300.595mil|Location2.Y=4338.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.595mil|Location2.X=6841.154mil|Location1.Y=4300.595mil|Location2.Y=4338.045mil|Absolute=True">Net Antennae: Track (157.353mm,109.474mm)(173.355mm,109.474mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6808.833mil|Location2.X=6834.393mil|Location1.Y=4330.595mil|Location2.Y=4368.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6808.833mil|Location2.X=6834.393mil|Location1.Y=4330.595mil|Location2.Y=4368.045mil|Absolute=True">Net Antennae: Track (158.877mm,110.236mm)(173.183mm,110.236mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6376.5mil|Location2.X=6400.089mil|Location1.Y=4701.5mil|Location2.Y=4735.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6376.5mil|Location2.X=6400.089mil|Location1.Y=4701.5mil|Location2.Y=4735.699mil|Absolute=True">Net Antennae: Track (160.401mm,119.634mm)(162.179mm,119.634mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6448.626mil|Location2.X=6478.471mil|Location1.Y=4023.626mil|Location2.Y=4068.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6448.626mil|Location2.X=6478.471mil|Location1.Y=4023.626mil|Location2.Y=4068.144mil|Absolute=True">Net Antennae: Track (164.084mm,101.6mm)(164.084mm,102.489mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6581.5mil|Location2.X=6605.089mil|Location1.Y=4411.5mil|Location2.Y=4445.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6581.5mil|Location2.X=6605.089mil|Location1.Y=4411.5mil|Location2.Y=4445.699mil|Absolute=True">Net Antennae: Track (167.386mm,112.268mm)(168.148mm,112.268mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.595mil|Location2.X=6841.154mil|Location1.Y=4400.595mil|Location2.Y=4438.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6815.595mil|Location2.X=6841.154mil|Location1.Y=4400.595mil|Location2.Y=4438.045mil|Absolute=True">Net Antennae: Track (173.101mm,111.76mm)(173.355mm,112.014mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDATWJJ3PF5SB1H3B2SR3TWL0QWGFOZWD4AP3SOBZQK3FVK3OKBXH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5530.454mil|Location2.X=5539.578mil|Location1.Y=4992.933mil|Location2.Y=5002.057mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\aman171\OneDrive - The University of Auckland\Desktop\ECSE Design Comp' 2026\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5530.454mil|Location2.X=5539.578mil|Location1.Y=4992.933mil|Location2.Y=5002.057mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.127mm &lt; 0.2mm) Between Board Edge And Text "U3" (140.843mm,125.095mm) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
